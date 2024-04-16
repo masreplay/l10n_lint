@@ -19,7 +19,6 @@ Future<void> initL10nCommand() async {
 
   final options = LocalizationOptions.parseFromYAML(
     file: File(l10nYamlPath),
-    defaultArbDir: defaultArbDir,
   );
 
   await configureL10nOptions(options);

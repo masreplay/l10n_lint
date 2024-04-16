@@ -175,7 +175,7 @@ class LocalizationOptions {
   /// but is empty.
   factory LocalizationOptions.parseFromYAML({
     required File file,
-    required String defaultArbDir,
+    String defaultArbDir = 'lib/l10n',
   }) {
     final String contents = file.readAsStringSync();
     if (contents.trim().isEmpty) {

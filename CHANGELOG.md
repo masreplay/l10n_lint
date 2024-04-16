@@ -1,7 +1,7 @@
 ## 0.2.2
 
 - fix remove-unused command (now removing key with it's placeholder)
-
+- fix sort arb keys in arb file
 
 ## 0.2.1
 

@@ -19,6 +19,7 @@ Future<void> removeUnusedTranslationsCommand(bool delete) async {
 
   if (delete) {
     print("Deleting unused string keys...");
+    print("Unused string keys: ${unusedStringKeys.length}");
     await _deleteUnusedStringKeys(unusedStringKeys, rootPosix);
   }
 }

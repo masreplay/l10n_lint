@@ -4,7 +4,6 @@ import 'commands/l10n_init_command.dart';
 import 'commands/print_version_command.dart';
 import 'commands/remove_unused_command.dart';
 import 'commands/sort_command.dart';
-import 'version.dart';
 
 const String helpFlag = 'help';
 const String sortFlag = 'sort';

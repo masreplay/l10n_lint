@@ -1,1 +1,6 @@
-{}
+{
+    "helloWorld": "Hello World {name}",
+    "@helloWorld": {
+        "description": "A simple hello world function",
+    }
+}
