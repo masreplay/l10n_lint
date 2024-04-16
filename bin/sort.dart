@@ -7,7 +7,7 @@ import 'dart:io';
 
 import 'package:yaml/yaml.dart';
 
-sortArbFileAlphabetically() async {
+sortArbFileAlphabeticallyCommand() async {
   final arbDirKey = 'arb-dir';
 
   final yamlFile = File('l10n.yaml');

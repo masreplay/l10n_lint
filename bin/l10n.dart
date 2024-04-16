@@ -7,7 +7,7 @@ import 'version.dart';
 
 const String helpFlag = 'help';
 const String sortFlag = 'sort';
-const String unusedFlag = 'unused';
+const String removeUnusedFlag = 'remove-unused';
 const String initFlag = 'init';
 const String verboseFlag = 'verbose';
 const String versionFlag = 'version';
@@ -33,7 +33,7 @@ ArgParser buildParser() {
       help: 'Sort the output.',
     )
     ..addFlag(
-      unusedFlag,
+      removeUnusedFlag,
       abbr: 'u',
       negatable: true,
       help: 'Find unused translations.',
@@ -52,7 +52,7 @@ ArgParser buildParser() {
 }
 
 void printUsage(ArgParser argParser) {
-  print('Usage: dart l10n.dart <flags> [arguments]');
+  print('l10n <flags> [arguments]');
   print(argParser.usage);
 }
 
@@ -72,16 +72,14 @@ void main(List<String> arguments) {
     } else if (results.wasParsed(verboseFlag)) {
       verbose = true;
     } else if (results.wasParsed(sortFlag)) {
-      sortArbFileAlphabetically();
+      sortArbFileAlphabeticallyCommand();
     } else if (results.wasParsed(initFlag)) {
       initL10nCommand();
-    } else if (results.wasParsed(unusedFlag)) {
-      final negatable = results['unused'] as bool;
-      unusedTranslationsCommand(negatable);
+    } else if (results.wasParsed(removeUnusedFlag)) {
+      final negatable = results[removeUnusedFlag] as bool;
+      removeUnusedTranslationsCommand(negatable);
     }
 
-    // // Act on the arguments provided.
-    // print('Positional arguments: ${results.rest}');
     if (verbose) {
       print('[VERBOSE] All arguments: ${results.arguments}');
     }
