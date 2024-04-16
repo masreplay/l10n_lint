@@ -1,0 +1,26 @@
+name: l10n_lint
+description: flutter l10n lint check if localization is initialized correctly and find string literal
+version: 0.1.0
+repository: https://github.com/masreplay/l10n_lint
+
+environment:
+  sdk: ^3.3.0
+
+dependencies:
+  analyzer: ^6.4.1
+  custom_lint_builder: ^0.6.4
+  meta: ^1.11.0
+
+  # cli
+  args: ^2.4.2
+  pubspec_parse: ^1.2.3
+  yaml: ^3.1.2
+  file: ^7.0.0
+  path: ^1.9.0
+
+dev_dependencies:
+  lints: ^3.0.0
+  test: ^1.24.0
+
+executables:
+  l10n:
