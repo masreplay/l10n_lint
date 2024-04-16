@@ -7,7 +7,7 @@ import 'version.dart';
 
 const String helpFlag = 'help';
 const String sortFlag = 'sort';
-const String unusedFlag = 'unusedFlag';
+const String unusedFlag = 'unused';
 const String initFlag = 'init';
 const String verboseFlag = 'verbose';
 const String versionFlag = 'version';
@@ -35,7 +35,7 @@ ArgParser buildParser() {
     ..addFlag(
       unusedFlag,
       abbr: 'u',
-      negatable: false,
+      negatable: true,
       help: 'Find unused translations.',
     )
     ..addFlag(
@@ -76,8 +76,8 @@ void main(List<String> arguments) {
     } else if (results.wasParsed(initFlag)) {
       initL10nCommand();
     } else if (results.wasParsed(unusedFlag)) {
-      final delete = results['delete'] as bool;
-      unusedTranslationsCommand(delete);
+      final negatable = results['unused'] as bool;
+      unusedTranslationsCommand(negatable);
     }
 
     // // Act on the arguments provided.

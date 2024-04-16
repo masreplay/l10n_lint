@@ -16,7 +16,9 @@ dependencies:
   pubspec_parse: ^1.2.3
   yaml: ^3.1.2
   file: ^7.0.0
+  
   path: ^1.9.0
+  glob: ^2.1.2
 
 dev_dependencies:
   lints: ^3.0.0
