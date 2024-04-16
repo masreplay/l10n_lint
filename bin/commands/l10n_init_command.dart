@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:pubspec_parse/pubspec_parse.dart';
 
-import 'l10n_yaml/l10n_options.dart';
-import 'l10n_yaml/l10n_paths.dart';
-import 'l10n_yaml/pubspec_l10n_config.dart';
-import 'l10n_yaml/utils/configure_l10n.dart';
-import 'l10n_yaml/utils/configure_l10n_options.dart';
+import '../l10n_yaml/l10n_options.dart';
+import '../l10n_yaml/l10n_paths.dart';
+import '../l10n_yaml/pubspec_l10n_config.dart';
+import '../l10n_yaml/utils/configure_l10n.dart';
+import '../l10n_yaml/utils/configure_l10n_options.dart';
 
 Future<void> initL10nCommand() async {
   final config = await _checkL10nConfig();

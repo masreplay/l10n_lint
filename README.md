@@ -18,7 +18,13 @@ dart pub global activate l10n_lint
 ```
 use:
 ```sh
-l10n init || l10n sort || l10n unused
+l10n <flags> [arguments]
+-h, --help                  Print this usage information.
+-v, --verbose               Show additional command output.
+-s, --sort                  Sort the ARB files alphabetically.
+-u, --[no-]remove-unused    Remove unused translations from the ARB file
+-i, --init                  Initialize the l10n tool.
+    --version               Print the tool version.
 ```
 
 To add `l10n_lint` to your Flutter project, follow these steps:
@@ -42,3 +48,7 @@ analyzer:
   plugins: 
     - custom_lint
 ```
+
+<!-- TODO -->
+## TODO
+- [ ] show number of deleted keys when run `l10n unused`

@@ -35,6 +35,9 @@ Future<void> _deleteUnusedStringKeys(
     final map = jsonDecode(content) as Map<String, dynamic>;
     for (final stringKey in unusedStringKeys) {
       map.remove(stringKey);
+      if (map.containsKey("@$stringKey")) {
+        map.remove("@$stringKey");
+      }
     }
 
     final sink = File(arbFile).openWrite();
@@ -87,11 +90,11 @@ Future<List<String>> _getDartFiles(String path) async {
 
 Future<Set<String>> _findUnusedStringKeys(
   Set<String> stringKeys,
-  List<String> files,
+  List<String> libFiles,
 ) async {
   final unusedStringKeys = stringKeys.toSet();
 
-  for (final file in files) {
+  for (final file in libFiles) {
     final content = await File(file).readAsString();
     for (final stringKey in stringKeys) {
       if (content.contains(".$stringKey")) {

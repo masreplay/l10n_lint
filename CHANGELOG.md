@@ -1,3 +1,8 @@
+## 0.2.2
+
+- fix remove-unused command (now removing key with it's placeholder)
+
+
 ## 0.2.1
 
 - Add command l10n --remove-unused (remove unused arb keys)

@@ -1,8 +1,9 @@
 import 'package:args/args.dart';
 
-import 'l10n_init.dart';
-import 'sort.dart';
-import 'unused.dart';
+import 'commands/l10n_init_command.dart';
+import 'commands/print_version_command.dart';
+import 'commands/remove_unused_command.dart';
+import 'commands/sort_command.dart';
 import 'version.dart';
 
 const String helpFlag = 'help';
@@ -30,19 +31,19 @@ ArgParser buildParser() {
       sortFlag,
       abbr: 's',
       negatable: false,
-      help: 'Sort the output.',
+      help: 'Sort the ARB files alphabetically.',
     )
     ..addFlag(
       removeUnusedFlag,
       abbr: 'u',
       negatable: true,
-      help: 'Find unused translations.',
+      help: 'Remove unused translations from the ARB files',
     )
     ..addFlag(
       initFlag,
       abbr: 'i',
       negatable: false,
-      help: 'Initialize the l10n tool.',
+      help: 'Initialize flutter_localizations (l10n) and it\'s configurations.',
     )
     ..addFlag(
       versionFlag,
@@ -67,7 +68,7 @@ void main(List<String> arguments) {
       printUsage(argParser);
       return;
     } else if (results.wasParsed(versionFlag)) {
-      print('l10n version: $version');
+      printVersionCommand();
       return;
     } else if (results.wasParsed(verboseFlag)) {
       verbose = true;
