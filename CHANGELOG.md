@@ -1,3 +1,6 @@
+## 0.3.1
+- docs
+- 
 ## 0.3.0
 - fix adding flutter_localizations package
 - fix arb file template

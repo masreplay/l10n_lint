@@ -7,16 +7,31 @@ The `l10n_lint` package provides linting rules for Flutter localization. It help
 - Linting rules to ensure correct initialization of localization.
 - Detection of string literals that should be localized.
 
+
 ## Getting started
 
 To start using the `l10n_lint` package, make sure you have the following prerequisites:
 Flutter SDK is installed on your machine.
 
 To install the `l10n_lint` cli and , run the following command:
+
 ```sh
 dart pub global activate l10n_lint
 ```
+
+# Use Init Flutter localization
+```bash
+l10n --init
+```
+- create l10n.yaml file
+- create lib/l10n folder
+- create lib/l10n/app_en.arb file
+- write file content
+- add intl and flutter_localizations to pubspec.yaml
+
+## Usage other command
 use:
+
 ```sh
 l10n <flags> [arguments]
 -h, --help                  Print this usage information.
@@ -26,6 +41,10 @@ l10n <flags> [arguments]
 -i, --init                  Initialize the l10n tool.
     --version               Print the tool version.
 ```
+
+
+## Use lint
+
 
 To add `l10n_lint` to your Flutter project, follow these steps:
 
@@ -51,4 +70,5 @@ analyzer:
 
 <!-- TODO -->
 ## TODO
-- [ ] show number of deleted keys when run `l10n unused`
+- [x] show number of deleted keys when run `l10n unused`
+- [ ] add test
