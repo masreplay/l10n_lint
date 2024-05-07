@@ -1,3 +1,7 @@
+## 0.3.0
+- fix adding flutter_localizations package
+- fix arb file template
+
 ## 0.2.2
 
 - fix remove-unused command (now removing key with it's placeholder)

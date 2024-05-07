@@ -12,6 +12,9 @@ class L10nConfig {
   /// Is intl package existed ```dependencies:\tintl: any```
   final bool intlPackageExists;
 
+  // is flutter_localizations package existed
+  final bool flutterLocalizationsPackageExists;
+
   /// Flutter section in the pubspec file ```flutter:```
   final bool isFlutterProject;
 
@@ -22,18 +25,22 @@ class L10nConfig {
     required this.isFlutterProject,
     required this.generate,
     required this.intlPackageExists,
+    required this.flutterLocalizationsPackageExists,
     required this.l10nYamlFileExists,
   });
 
   factory L10nConfig.parse(Pubspec pubspec) {
     final generate = pubspec.flutter!['generate'];
     final intlPackageExists = pubspec.dependencies.containsKey('intl');
+    final flutterLocalizationsPackageExists =
+        pubspec.dependencies.containsKey('flutter_localizations');
     final l10nYamlFileExists = File(l10nYamlPath).existsSync();
 
     return L10nConfig(
       isFlutterProject: pubspec.flutter != null,
       generate: generate,
       intlPackageExists: intlPackageExists,
+      flutterLocalizationsPackageExists: flutterLocalizationsPackageExists,
       l10nYamlFileExists: l10nYamlFileExists,
     );
   }

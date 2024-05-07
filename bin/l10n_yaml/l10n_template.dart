@@ -3,4 +3,6 @@ template-arb-file: app_en.arb
 output-localization-file: app_localizations.dart
 """;
 
-const String arbTemplate = """"{}""";
+String arbFileTemplate(String locale) => """{
+  "@@locale": "$locale"
+}""";

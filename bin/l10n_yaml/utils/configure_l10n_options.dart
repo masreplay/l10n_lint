@@ -39,18 +39,20 @@ Future<void> configureL10nOptions(LocalizationOptions options) async {
   // relative to arbDir join
   final templateArbFile = File(path.join(arbDir.path, options.templateArbFile));
   print(
-      "${LocalizationOptions.templateArbFileKey}: ${options.templateArbFile}");
+    "${LocalizationOptions.templateArbFileKey}: ${options.templateArbFile}",
+  );
   if (templateArbFile.existsSync()) {
     if ((await templateArbFile.length()) == 0) {
       print("template arb file is empty");
-      templateArbFile.writeAsStringSync(l10nYamlTemplate);
+      // TODO(masreplay): get locale form templateArbFile in l10n.yaml
+      templateArbFile.writeAsStringSync(arbFileTemplate("en"));
     } else {
       print("template arb file found");
     }
   } else {
     print("template arb file not found");
     templateArbFile.createSync();
-    templateArbFile.writeAsStringSync("{}");
+    templateArbFile.writeAsStringSync(arbFileTemplate("en"));
     print("template arb file created");
   }
 }

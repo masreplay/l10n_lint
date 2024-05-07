@@ -17,6 +17,13 @@ Future<void> configureL10n(L10nConfig config) async {
     print("intl package added to the pubspec.yaml file");
   }
 
+  if (!config.flutterLocalizationsPackageExists) {
+    // add flutter_localizations
+    print("Adding flutter_localizations package to the pubspec.yaml file");
+    await _addFlutterLocalizationsDependency();
+    print("flutter_localizations package added to the pubspec.yaml file");
+  }
+
   if (config.generate == null) {
     // add flutter generate: true
     print("Adding flutter generate: true to the pubspec.yaml file");
@@ -55,6 +62,17 @@ Future<void> _addIntlDependency() async {
   final updatedPubspecContent = pubspecContent.replaceFirst(
     "dependencies:",
     "dependencies:\n  intl: any",
+  );
+  await pubspecFile.writeAsString(updatedPubspecContent);
+}
+
+Future<void> _addFlutterLocalizationsDependency() async {
+  final pubspecFile = File(pubspecYamlPath);
+  // write after ```dependencies:```
+  final pubspecContent = await pubspecFile.readAsString();
+  final updatedPubspecContent = pubspecContent.replaceFirst(
+    "dependencies:",
+    "dependencies:\n  flutter_localizations:\n    sdk: flutter",
   );
   await pubspecFile.writeAsString(updatedPubspecContent);
 }
