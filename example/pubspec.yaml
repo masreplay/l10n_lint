@@ -1,23 +1,26 @@
 name: example
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.3.0 <4.0.0'
+  sdk: ">=3.5.0 <4.0.0"
 
 dependencies:
+  intl: any
   flutter_localizations:
     sdk: flutter
-  intl: any
+
   flutter:
     sdk: flutter
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
-  custom_lint:
+
+  flutter_lints: ^4.0.0
+  custom_lint: ^0.6.7
+
   l10n_lint:
     path: ../
 

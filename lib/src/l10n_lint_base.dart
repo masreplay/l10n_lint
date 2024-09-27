@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:analyzer/dart/analysis/results.dart';
 import 'package:analyzer/dart/ast/ast.dart';
-import 'package:analyzer/error/error.dart';
+import 'package:analyzer/error/error.dart' hide LintCode;
 import 'package:analyzer/error/listener.dart';
 import 'package:custom_lint_builder/custom_lint_builder.dart';
 import 'package:l10n_lint/src/lint_specifications.dart';
@@ -34,9 +34,7 @@ class _FlutterSaneLints extends PluginBase {
     //   print('${element.key}: ${element.value.json}');
     // }
 
-    return [
-      const AvoidStringLiteralsInsideWidgetLintRule(),
-    ];
+    return [AvoidStringLiteralsInsideWidgetLintRule()];
   }
 }
 
@@ -45,11 +43,14 @@ class _FlutterSaneLints extends PluginBase {
 class AvoidStringLiteralsInsideWidgetLintRule extends DartLintRule
     with TestableDartRule {
   /// Default const constructor
-  const AvoidStringLiteralsInsideWidgetLintRule() : super(code: _code);
+  AvoidStringLiteralsInsideWidgetLintRule() : super(code: _code);
 
   /// Metadata about the warning that will show-up in the IDE.
   /// This is used for `// ignore: code` and enabling/disabling the lint
-  static const _code = LintCode(
+
+  static const _name = 'avoid_string_literals_inside_widget';
+
+  static final LintCode _code = LintCode(
     name: _name,
     problemMessage: 'String literals should not be declared inside a widget '
         'class. '
@@ -63,8 +64,6 @@ class AvoidStringLiteralsInsideWidgetLintRule extends DartLintRule
     errorSeverity: ErrorSeverity.WARNING,
     uniqueName: _name,
   );
-
-  static const _name = 'avoid_string_literals_inside_widget';
 
   @override
   void run(
@@ -86,7 +85,7 @@ class AvoidStringLiteralsInsideWidgetLintRule extends DartLintRule
       );
 
       if (w != null) {
-        reporter.reportErrorForNode(code, node);
+        reporter.atNode(node, code);
       }
     });
     // string interpolation registry
@@ -96,7 +95,7 @@ class AvoidStringLiteralsInsideWidgetLintRule extends DartLintRule
       );
 
       if (w != null) {
-        reporter.reportErrorForNode(code, node);
+        reporter.atNode(node, code);
       }
     });
   }

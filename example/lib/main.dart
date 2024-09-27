@@ -9,7 +9,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // expect_lint: avoid_string_literals_inside_widget
-    return const Text('nasty string literals will not support l10n!');
+    // no expect_lint: avoid_string_literals_inside_widget
+    return const Text('hard code string literals will not support l10n!');
   }
 }
