@@ -1,3 +1,9 @@
+## 0.6.0
+- update riverpod version
+
+## 0.5.0
+- fix bugs
+  
 ## 0.4.0
 - fix bugs
 
