@@ -75,6 +75,7 @@ extension ElementParser on Element {
           // returns Widget
           (this as FunctionTypedElement)
                   .returnType
+                  // ignore: deprecated_member_use
                   .getDisplayString(withNullability: false) ==
               'Widget');
 

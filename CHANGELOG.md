@@ -1,5 +1,5 @@
 ## 0.6.0
-- update riverpod version
+- update custom_lint version
 
 ## 0.5.0
 - fix bugs
