@@ -18,8 +18,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^4.0.0
-  custom_lint: ^0.6.7
+  flutter_lints: ^5.0.0
+  custom_lint: ^0.7.0
 
   l10n_lint:
     path: ../
