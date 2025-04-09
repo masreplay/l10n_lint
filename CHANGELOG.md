@@ -1,16 +1,25 @@
+## 1.0.0
+
+- Update flutter version to 3.29.2
+
 ## 0.6.0
+
 - update custom_lint version
 
 ## 0.5.0
+
 - fix bugs
-  
+
 ## 0.4.0
+
 - fix bugs
 
 ## 0.3.1
+
 - docs
- 
+
 ## 0.3.0
+
 - fix adding flutter_localizations package
 - fix arb file template
 
@@ -27,7 +36,7 @@
 ## 0.2.0
 
 - **Add** l10n cli
-  
+
 ## 0.1.0
 
 - Initial version.
